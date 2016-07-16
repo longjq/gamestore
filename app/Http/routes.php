@@ -12,5 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/u/create', function () {
+    return [
+        "rs" => 1,
+        "msg"=> "success",
+        "uid"=> 13
+    ];
 });

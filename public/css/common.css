@@ -2378,6 +2378,9 @@ section[data-ui~=graphic] [data-role=info] strong {
     font-weight: 600;
     color: #ef4e3a
 }
+.tabs a.icon-tab-share{
+    background:red url(/images/share.png) no-repeat right top;
+}
 .tabs {
     height: 30px;
     line-height:30px;

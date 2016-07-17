@@ -24,8 +24,9 @@
                     <a href="#" data-index="2" id="tab-2" class="title">My Games</a>
                 </td>
                 <td align="center">
-                    <a href="###" style="background-color: #fff;color:#145fd7;" style="text-align: right;" class="ui-btn" data-ui="icon-only" tapmode="" data-track="navsearch"><i
-                                class="icon-search-bold"></i></a>
+                    <a href="###" style="background-color: #fff;color:#145fd7;" style="text-align: right;" class="ui-btn" data-ui="icon-only" tapmode="" data-track="navsearch">
+                        S
+                    </a>
                 </td>
             </tr>
         </table>
@@ -54,7 +55,7 @@
 
     </nav><!-- end 次导航 -->
 
-    <div class="container index pageStart" style="padding-top:40px;">
+    <div class="container index pageStart" id="list-box" style="padding-top:40px;">
         <section id="con-1" style="margin-bottom:50px;">
             <div class="banner-top">
                 <a href="#">
@@ -66,7 +67,7 @@
             </header>
             <div class="list">
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                         <figure class="cover">
 
@@ -82,11 +83,11 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div><br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                         <figure class="cover">
 
@@ -102,11 +103,11 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div><br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                         <figure class="cover">
 
@@ -122,7 +123,7 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div>
             </div>
@@ -143,7 +144,7 @@
             </header>
             <div class="list">
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                         <figure class="cover">
 
@@ -159,12 +160,12 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
+                    <a  data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div>
                 <br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/hmk/index.html">
+                    <a  data-id="2" data-title="滑木块" href="http://smg.wgchao.com/good/syt/hmk/index.html">
 
                         <figure class="cover">
 
@@ -180,11 +181,11 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/hmk/index.html" class="ui-btn play" data-ui="primary small">play</a>
+                    <a data-id="2" data-title="滑木块" href="http://smg.wgchao.com/good/syt/hmk/index.html" class="ui-btn play" data-ui="primary small">play</a>
                 </div>
                 <br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/jidan/index.html">
+                    <a data-id="3" data-title="扔鸡蛋" href="http://smg.wgchao.com/good/syt/jidan/index.html">
 
                         <figure class="cover">
 
@@ -200,12 +201,12 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/jidan/index.html" class="ui-btn play"
+                    <a data-id="3" data-title="扔鸡蛋" href="http://smg.wgchao.com/good/syt/jidan/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div>
                 <br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/jtlq/index.html">
+                    <a  data-id="4" data-title="街头篮球" href="http://smg.wgchao.com/good/syt/jtlq/index.html">
 
                         <figure class="cover">
 
@@ -221,12 +222,12 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/jtlq/index.html" class="ui-btn play"
+                    <a data-id="4" data-title="街头篮球" href="http://smg.wgchao.com/good/syt/jtlq/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div>
                 <br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/syt/mlss/index.html">
+                    <a  data-id="5" data-title="小心女司机" href="http://smg.wgchao.com/good/syt/mlss/index.html">
 
                         <figure class="cover">
 
@@ -242,7 +243,7 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/syt/mlss/index.html" class="ui-btn play"
+                    <a  data-id="5" data-title="小心女司机" href="http://smg.wgchao.com/good/syt/mlss/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div>
                 <br>
@@ -1415,7 +1416,7 @@
                 </div>
                 <br>
                 <div class="item">
-                    <a href="http://smg.wgchao.com/good/zzf/yblc/index.html">
+                    <a  href="http://smg.wgchao.com/good/zzf/yblc/index.html">
 
                         <figure class="cover">
 
@@ -1431,7 +1432,7 @@
 
                         </div>
                     </a>
-                    <a href="http://smg.wgchao.com/good/zzf/yblc/index.html" class="ui-btn play"
+                    <a  href="http://smg.wgchao.com/good/zzf/yblc/index.html" class="ui-btn play"
                        data-ui="primary small">play</a>
                 </div>
                 <br>
@@ -1445,7 +1446,7 @@
             </header>
             <div class="list">
             <div class="item">
-                <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                <a  data-id="1" data-title="一个不能死"  href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                     <figure class="cover">
 
@@ -1461,7 +1462,7 @@
 
                     </div>
                 </a>
-                <a href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
+                <a  data-id="1" data-title="一个不能死"  href="http://smg.wgchao.com/good/syt/bunengsi/index.html" class="ui-btn play"
                    data-ui="primary small">play</a>
             </div>
                 </div>
@@ -1476,6 +1477,18 @@
 <script src="{!! asset('js/java_bridge.js') !!}" type="text/javascript"></script>
 <script>
     $(function(){
+        $('#list-box a').click(function (e) {
+            e.preventDefault();
+          
+            // alert('id:'+$(this).data('id')+'=title:'+$(this).data('title')+"=game_url:"+$(this).attr('href'));
+             sendNative('functionOpen', {
+                    'id': $(this).data('id'),
+                    'title': $(this).data('title'),
+                    'game_url': $(this).attr('href')
+                });
+             return false;
+        });
+
         $('.tabs a').click(function(){
             var index = $(this).data('index');
             if(index == 1){
@@ -1489,23 +1502,8 @@
                 $('#con-1').hide();
                 $('#con-2').show();
             }
-
         });
     });
-    window.onload = function () {
-        var aA = document.getElementsByTagName('a');
-        for (var i = 0; i < aA.length; i++) {
-            aA[i].onclick = function () {
-
-                sendNative('functionOpen', {
-                    'id': this.getAttribute('data-id'),
-                    'title': this.getAttribute('data-title'),
-                    'game_url': this.getAttribute('data-url')
-                });
-
-            };
-        }
-    };
 
     function sendNative(fnName, params) {
         window.WebViewJavascriptBridge.callHandler(

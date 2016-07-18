@@ -29,11 +29,5 @@ Route::get('/m/up', function () {
     ];
 });
 
-// 激活
-Route::post('/u/create', function () {
-    return [
-        "rs" => 1,
-        "msg"=> "success",
-        "uid"=> 13
-    ];
-});
+// 激活 ok
+Route::post('/u/create', "GameUserController@active");

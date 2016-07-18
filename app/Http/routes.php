@@ -15,7 +15,22 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/u/create', function () {
+// 设置语言
+Route::get('/{locale}', function ($locale) {
+    App::setLocale($locale);
+    return view('index');
+});
+
+// 更新
+Route::get('/m/up', function () {
+    return [
+        "ver" => "4.1.3",
+        "url"=> "http://qqapp.qq.com/app/100653345.html#via=APPCENTER.XX.HOME-HOT",
+    ];
+});
+
+// 激活
+Route::post('/u/create', function () {
     return [
         "rs" => 1,
         "msg"=> "success",

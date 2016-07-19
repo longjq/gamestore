@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>index</title>
+    <title>{{ trans('index.title') }}</title>
     <link rel="stylesheet" href="{!! asset('css/common.css') !!}">
 </head>
 <body>
-<h1 id="callback">客户端回传</h1>
+
 <div id="page">
     <header class="ui-bar" data-ui="header primary static" id="header">
         <table class="tabs">
@@ -28,9 +28,13 @@
                     </a>
                 </td>
                 <td align="center">
-                    <a href="###" style="background-color: #fff;color:#145fd7;" style="text-align: right;"
-                       class="ui-btn" data-ui="icon-only" tapmode="" data-track="navsearch">
-                        S
+                    <a href="###" id="share-btn" class="ui-btn" data-ui="icon-only" tapmode="" data-track="navsearch"
+                       data-app_name="game store"
+                       data-app_desc="play games"
+                       data-app_url="http://ga.wgchao.com"
+                       data-app_icon="http://ga.wgchao.com/images/icon.png"
+                       >
+                        <img src="{{ asset('images/share_72x72.png') }}" alt="share">
                     </a>
                 </td>
             </tr>
@@ -267,7 +271,7 @@
         </section>
         <section id="con-2" style="display: none;">
             <header>
-                <h2>Play Games History</h2>
+                <h2>{{ trans('index.history') }}</h2>
             </header>
             <div class="list">
                 <div class="item">
@@ -294,26 +298,15 @@
             </div>
         </section>
     </div>
-
+<h1 id="callback" style="color: red;">
+    {{ print_r($lang) }}
+===
+    {{ $local }}
+</h1>
 </div>
 
 <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script>
-//    window.onload=function(){
-//        var aA = document.getElementsByTagName('a');
-//
-//        for (var i=0;i<aA.length;i++){
-//
-//            aA[i].onclick=function(){
-//                // window.location.href= this.getAttribute('data-url');
-//                sendNative('functionOpen',{
-//                    'id': this.getAttribute('data-id'),
-//                    'title': this.getAttribute('data-title'),
-//                    'game_url': this.getAttribute('data-url')
-//                });
-//            };
-//        }
-//    };
 
     $(function () {
         $('#list-box a').click(function (e) {
@@ -327,7 +320,24 @@
             return false;
         });
 
-        $('.tabs a').click(function () {
+        $('#share-btn').click(function(e){
+            e.preventDefault();
+//            console.log({
+//                'app_name': $(this).data('app_name'),
+//                'app_desc': $(this).data('app_desc'),
+//                'app_icon': $(this).data('app_icon'),
+//                'app_url' : $(this).data('app_url')
+//            });
+            sendNative('share', {
+                'app_name': $(this).data('app_name'),
+                'app_desc': $(this).data('app_desc'),
+                'app_icon': $(this).data('app_icon'),
+                'app_url' : $(this).data('app_url')
+            });
+            return false;
+        });
+
+        $('.tabs .title').click(function () {
             var index = $(this).data('index');
             if (index == 1) {
                 $(this).addClass('active');

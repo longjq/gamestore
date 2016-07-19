@@ -77,7 +77,6 @@ class InitTables extends Migration
             $table->integer('game_id')->comment('游戏ID，share_type=0时才填写');
             $table->string('title',50)->comment('游戏名称，share_type=0时才填写');
             $table->string('target',30);
-            $table->string('url');
             $table->timestamps();
         });
 

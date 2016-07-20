@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\LocaleHelper;
 use App\Models\EventLog;
+use App\Models\Game;
 use App\Models\GameUser;
 use App\Models\ShareLog;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App;
 class GameController extends Controller
 {
+    public function index(Request $request)
+    {
+        $langs = $request->getLanguages();
+        $lang = 'en';
+        if (count($langs)>0) {
+            App::setLocale($langs[0]);
+            $lang = LocaleHelper::getSupportLang($langs[0]);
+        }else{
+            App::setLocale($lang);
+        }
+        $list = Game::where('lang',$lang)->paginate(15);
+        return view('index',compact('list'));
+    }
     // 应用状态上报
     public function status(Request $request)
     {

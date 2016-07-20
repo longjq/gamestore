@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="{!! asset('css/common.css') !!}">
 </head>
 <body>
-
+<h1 id="callback" style="color: red;">
+    callback box
+</h1>
 <div id="page">
     <header class="ui-bar" data-ui="header primary static" id="header">
         <table class="tabs">
@@ -75,71 +77,33 @@
                 <h2>  {{ trans('index.news') }}</h2>
             </header>
             <div class="list">
+                @foreach($list as $item)
+                    @if($item->recommend == 1)
                 <div class="item">
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                         <figure class="cover">
 
-                            <img src="{!! asset('images/logo-wx.png') !!}" !!}
+                            <img src="{!! asset($item->icon_url) !!}"
                                  style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
                         </figure>
                         <div class="meta">
-                            <h3 class="title">一个不能死</h3>
+                            <h3 class="title">{{ $item->title }}</h3>
                             <br>
-                            <i class="icon-star-4"></i>
+                            <i class="icon-star-{{ $item->stars }}"></i>
 
-                            <span class="count">人气: 961199</span>
+                            <span class="count">{{ trans('index.hot') }}: {{ intval($item->hot_base) + intval($item->hot) }}</span>
 
                         </div>
                     </a>
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
+                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
                        class="ui-btn play"
-                       data-ui="primary small">play</a>
+                       data-ui="primary small">Play</a>
                 </div>
                 <br>
-                <div class="item">
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    @endif
+                @endforeach
 
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/logo-wx.png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">一个不能死</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 961199</span>
-
-                        </div>
-                    </a>
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">play</a>
-                </div>
-                <br>
-                <div class="item">
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
-
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/logo-wx.png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">一个不能死</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 961199</span>
-
-                        </div>
-                    </a>
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">play</a>
-                </div>
             </div>
             <div class="banner-small">
                 <div class="banner-l">
@@ -157,115 +121,33 @@
                 <h2>  {{ trans('index.rank') }}</h2>
             </header>
             <div class="list">
+                @foreach($list as $item)
+                    @if($item->recommend == 0)
                 <div class="item">
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
 
                         <figure class="cover">
 
-                            <img src="{!! asset('images/logo-wx.png') !!}"
+                            <img src="{!! asset($item->icon_url) !!}"
                                  style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
                         </figure>
                         <div class="meta">
-                            <h3 class="title">一个不能死</h3>
+                            <h3 class="title">{{ $item->title }}</h3>
                             <br>
-                            <i class="icon-star-4"></i>
+                            <i class="icon-star-{{ $item->stars }}"></i>
 
-                            <span class="count">人气: 961199</span>
+                            <span class="count">{{ trans('index.hot') }}: {{ intval($item->hot_base) + intval($item->hot) }}</span>
 
                         </div>
                     </a>
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
+                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
                        class="ui-btn play"
-                       data-ui="primary small">play</a>
+                       data-ui="primary small">Play</a>
                 </div>
                 <br>
-                <div class="item">
-                    <a data-id="2" data-title="滑木块" href="http://smg.wgchao.com/good/syt/hmk/index.html">
+                    @endif
+                @endforeach
 
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/icon.png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">滑木块</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 309744</span>
-
-                        </div>
-                    </a>
-                    <a data-id="2" data-title="滑木块" href="http://smg.wgchao.com/good/syt/hmk/index.html"
-                       class="ui-btn play" data-ui="primary small">play</a>
-                </div>
-                <br>
-                <div class="item">
-                    <a data-id="3" data-title="扔鸡蛋" href="http://smg.wgchao.com/good/syt/jidan/index.html">
-
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/icon(1).png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">扔鸡蛋</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 891611</span>
-
-                        </div>
-                    </a>
-                    <a data-id="3" data-title="扔鸡蛋" href="http://smg.wgchao.com/good/syt/jidan/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">play</a>
-                </div>
-                <br>
-                <div class="item">
-                    <a data-id="4" data-title="街头篮球" href="http://smg.wgchao.com/good/syt/jtlq/index.html">
-
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/icon(2).png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">街头篮球</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 239135</span>
-
-                        </div>
-                    </a>
-                    <a data-id="4" data-title="街头篮球" href="http://smg.wgchao.com/good/syt/jtlq/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">play</a>
-                </div>
-                <br>
-                <div class="item">
-                    <a data-id="5" data-title="小心女司机" href="http://smg.wgchao.com/good/syt/mlss/index.html">
-
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/icon(3).png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">小心女司机</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 323381</span>
-
-                        </div>
-                    </a>
-                    <a data-id="5" data-title="小心女司机" href="http://smg.wgchao.com/good/syt/mlss/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">play</a>
-                </div>
-                <br>
 
             </div>
         </section>
@@ -298,11 +180,6 @@
             </div>
         </section>
     </div>
-<h1 id="callback" style="color: red;">
-    {{ print_r($lang) }}
-===
-    {{ $local }}
-</h1>
 </div>
 
 <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>

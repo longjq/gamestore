@@ -30,7 +30,7 @@ class EventLog extends Model
     // 实体类
     private function transField($data)
     {
-        $mapType = ['open_app'=>1,'close_app'=>2,'open_game'=>3,'open_game'=>4,'app'=>5,'game'=>6];
+        $mapType = ['open_app'=>1,'close_app'=>2,'open_game'=>3,'close_game'=>4,'app'=>5,'game'=>6];
         $event['event_type'] = $mapType[$data['type']];
         if (!empty($data['game_id'])) $event['game_id'] = $data['game_id'];
         if (!empty($data['start'])) $event['start_time'] = date('Y-m-d H:i:s', intval($data['start']));

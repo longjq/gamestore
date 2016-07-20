@@ -10,13 +10,13 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function (\Illuminate\Http\Request $request) {
-    $lang = $request->getLanguages();
-    $local = $request->getLocale();
-    \App::setLocale(strtolower($lang[0]));
-    return view('index', compact('lang', 'local'));
-});
+Route::get('/', 'GameController@index');
+//Route::get('/', function (\Illuminate\Http\Request $request) {
+//    $lang = $request->getLanguages();
+//    $local = $request->getLocale();
+//    \App::setLocale(strtolower($lang[0]));
+//    return view('index', compact('lang', 'local'));
+//});
 
 //Route::get('/l', function (\Illuminate\Http\Request $request) {
 //    header('<meta name="viewport" content="width=device-width, initial-scale=1">');

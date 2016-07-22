@@ -20,7 +20,6 @@ class GameUserController extends Controller
             'v','os','lang','device','brand','net','imei','imsi','mo','root','tz','oper','mac','ua','ov','sw','sh','mem','cpu','sdcard','ip'
         ]);
         if ($user = GameUser::create($datas)){
-            // GoogleToken::create(['uid'=>$user->id,'google_token'=>$request->input('google_token')]);
             return json_encode(['rs'=> 1,'msg'=>'success','uid'=>$user->id]);
         }
         return json_encode(['rs'=> 0,'msg'=>'error','uid'=>0]);

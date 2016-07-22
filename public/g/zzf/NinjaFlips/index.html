@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8" />
+        
+		<title>Ninja Flips_上蚂蚁社区玩HTML5游戏-H5游戏平台</title>
+        <meta name="keywords" content="蚂蚁社区,h5游戏,好玩的H5游戏,h5游戏平台，h5游戏排行榜，手机小游戏，手机网页游戏"/>
+       <meta name="description" content="蚂蚁社区为玩家提供好玩的手机网页小游戏，网站收录了国内外好玩的免费手机小游戏，无需下载点击即玩！"/>
+		
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/add2home.css" />
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui" />
+        
+		<link rel="icon" type="image/png" href="promo/favicon.png" />
+        
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<link rel="apple-touch-icon" href="promo/icon-114x114.png" />
+<script type="text/javascript">
+
+function getQueryString(name) {
+var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+var r = document.referrer.slice(document.referrer.indexOf('?')+1).match(reg);
+if (r != null) return unescape(r[2]); return null;
+}
+
+
+var postUrl = '/openinterface/AddGameScore.ashx?GameId='+ getQueryString('gameid') + '&Score=';
+
+function postScore(url) {
+    var url = postUrl + url
+    var xmlHttpReq = null; 
+    if (window.ActiveXObject) { 
+        xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+    } else if (window.XMLHttpRequest) { 
+        xmlHttpReq = new XMLHttpRequest(); 
+    }
+    if (xmlHttpReq != null) { 
+        xmlHttpReq.open("GET", url, true); 
+        xmlHttpReq.onreadystatechange = RequestCallBack; 
+        xmlHttpReq.send(null); 
+    }
+
+    function RequestCallBack() { 
+        if (xmlHttpReq.readyState == 4) {
+            if (xmlHttpReq.status == 200) {
+                //将xmlHttpReq.responseText的值赋给ID为 resText 的元素
+                // document.getElementById("resText").innerHTML = xmlHttpReq.responseText;
+
+                if(xmlHttpReq.responseText == 2){
+                    var parentUrl = window.parent.location.href;
+                    if(parentUrl.indexOf('/m/')>0){
+                        loginUrl = '/m/customer/login.aspx?fromUrl='+ parentUrl;
+                    }
+                    else{
+                        loginUrl = '/customer/logandreg.aspx?fromUrl='+ parentUrl;
+                    }         
+                    var r=confirm("您还未登陆，登陆后可提交比分到排行榜")
+                    if (r==true)
+                        { window.parent.location.href = loginUrl; }
+                    else
+                        { 
+
+                        }
+                    }
+                }
+                // alert(xmlHttpReq.responseText)
+                window.parent.myAjax('/openinterface/GetGameRankList.ashx','10',getQueryString('gameid'));
+            }
+        }
+    }
+
+    function goLeaderboard(){
+        try{
+            window.parent.goleaderboardPage();
+        }
+        catch(err){
+
+        }
+    }
+</script>
+
+        <script>
+            window.crossPromoSettings = {
+                currentGame : 'ninjaflips'
+            };
+        </script>
+		
+		<script src="js/bundle-cmp.js"></script>
+        
+        <meta name="description" content="Play Ninja Flips on Kik! Can you avoid the obstacles? Are you a ninja? Ninja flips is easy to play but hard to master. Tap the screen to make the ninjas flip, and try to survive as long as you can by avoiding the deadly obstacles. Challenge friends, enemies, flirts, crushes, and the opposite sex. If you think Flappy Bird and 2048 are addictive games, wait until you play Ninja Flips.">
+        <link rel="kik-icon" href="promo/icon-256x256.png">
+
+	</head>
+	
+	<body>
+		<div id="game-table">
+			<div id="game-cell">
+				<div id="viewport">
+					<canvas id="gamecanvas"></canvas>
+				</div>
+			</div>
+		</div>
+		
+		<div id="ad-overlay">
+			<div id="ad-table">
+				<div id="ad-cell">
+					<div id="ad-container">
+						<div id="ad-close-button"></div>
+						<div id="ad"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+        
+     
+	</body>
+</html>

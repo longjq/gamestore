@@ -7,9 +7,6 @@
     <link rel="stylesheet" href="{!! asset('css/common.css') !!}">
 </head>
 <body>
-<h1 id="callback" style="color: red;">
-    callback box
-</h1>
 <div id="page">
     <header class="ui-bar" data-ui="header primary static" id="header">
         <table class="tabs">
@@ -35,7 +32,7 @@
                        data-app_desc="play games"
                        data-app_url="http://ga.wgchao.com"
                        data-app_icon="http://ga.wgchao.com/images/icon.png"
-                       >
+                    >
                         <img src="{{ asset('images/share_72x72.png') }}" alt="share">
                     </a>
                 </td>
@@ -66,7 +63,7 @@
 
     </nav><!-- end 次导航 -->
 
-    <div class="container index pageStart" id="list-box" style="padding-top:40px;">
+    <div class="container index pageStart" id="list_box" style="padding-top:40px;">
         <section id="con-1" style="margin-bottom:50px;">
             <div class="banner-top">
                 <a href="#">
@@ -74,77 +71,104 @@
                 </a>
             </div>
             <header>
-                <h2>  {{ trans('index.news') }}</h2>
+                <h2 class="news">  {{ trans('index.news') }}</h2>
             </header>
             <div class="list">
                 @foreach($list as $item)
                     @if($item->recommend == 1)
-                <div class="item">
-                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                        <div class="item">
+                            <a data-id="{{ $item->id }}"
+                               data-display="{{ $item->screen_display }}"
+                               data-title="{{ $item->title }}"
+                               href="{{ $item->path }}"
+                               data-icon="{{ $item->icon_url }}"
+                               data-stars="{{ $item->stars }}"
+                               data-hot="{{ intval($item->hot_base) + intval($item->hot) }}"
+                               data-hot_label="{{ trans('index.hot') }}"
+                            >
 
-                        <figure class="cover">
+                                <figure class="cover">
 
-                            <img src="{!! asset($item->icon_url) !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">{{ $item->title }}</h3>
-                            <br>
-                            <i class="icon-star-{{ $item->stars }}"></i>
+                                    <img src="{!! asset($item->icon_url) !!}"
+                                         style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
+                                </figure>
+                                <div class="meta">
+                                    <h3 class="title">{{ $item->title }}</h3>
+                                    <i class="icon-star-{{ $item->stars }}"></i>
 
-                            <span class="count">{{ trans('index.hot') }}: {{ intval($item->hot_base) + intval($item->hot) }}</span>
+                                    <span class="count">{{ trans('index.hot') }}
+                                        : {{ intval($item->hot_base) + intval($item->hot) }}</span>
 
+                                </div>
+                            </a>
+                            <a data-id="{{ $item->id }}"
+                               data-display="{{ $item->screen_display }}"
+                               data-title="{{ $item->title }}"
+                               href="{{ $item->path }}"
+                               data-icon="{{ $item->icon_url }}"
+                               data-stars="{{ $item->stars }}"
+                               data-hot="{{ intval($item->hot_base) + intval($item->hot) }}"
+                               data-hot_label="{{ trans('index.hot') }}"
+                               class="ui-btn play"
+                               data-ui="primary small">Play</a>
                         </div>
-                    </a>
-                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">Play</a>
-                </div>
-                <br>
+                        <br>
                     @endif
                 @endforeach
 
             </div>
             <div class="banner-small">
-                <div class="banner-l">
-                    <a href="#">
-                        <img src="{!! asset('images/l.jpg') !!}" alt="">
-                    </a>
-                </div>
-                <div class="banner-r">
-                    <a href="#">
-                        <img src="{!! asset('images/r.jpg') !!}" alt="">
-                    </a>
-                </div>
+                <table>
+                    <tr>
+                        <td align="right" style="text-align:right"><img src="{!! asset('images/l.jpg') !!}" alt=""></td>
+                        <td>&nbsp;</td>
+                        <td align="left" style="text-align:left"><img src="{!! asset('images/r.jpg') !!}" alt=""></td>
+                    </tr>
+                </table>
             </div>
             <header>
-                <h2>  {{ trans('index.rank') }}</h2>
+                <h2 class="rank">  {{ trans('index.rank') }}</h2>
             </header>
             <div class="list">
                 @foreach($list as $item)
                     @if($item->recommend == 0)
-                <div class="item">
-                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
+                        <div class="item">
+                            <a data-id="{{ $item->id }}"
+                               data-display="{{ $item->screen_display }}"
+                               data-title="{{ $item->title }}"
+                               href="{{ $item->path }}"
+                               data-icon="{{ $item->icon_url }}"
+                               data-stars="{{ $item->stars }}"
+                               data-hot="{{ intval($item->hot_base) + intval($item->hot) }}"
+                               data-hot_label="{{ trans('index.hot') }}"
+                            >
 
-                        <figure class="cover">
+                                <figure class="cover">
 
-                            <img src="{!! asset($item->icon_url) !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">{{ $item->title }}</h3>
-                            <br>
-                            <i class="icon-star-{{ $item->stars }}"></i>
+                                    <img src="{!! asset($item->icon_url) !!}"
+                                         style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
+                                </figure>
+                                <div class="meta">
+                                    <h3 class="title">{{ $item->title }}</h3>
+                                    <i class="icon-star-{{ $item->stars }}"></i>
 
-                            <span class="count">{{ trans('index.hot') }}: {{ intval($item->hot_base) + intval($item->hot) }}</span>
+                                    <span class="count">{{ trans('index.hot') }}
+                                        : {{ intval($item->hot_base) + intval($item->hot) }}</span>
 
+                                </div>
+                            </a>
+                            <a data-id="{{ $item->id }}"
+                               data-display="{{ $item->screen_display }}"
+                               data-title="{{ $item->title }}"
+                               href="{{ $item->path }}"
+                               data-icon="{{ $item->icon_url }}"
+                               data-stars="{{ $item->stars }}"
+                               data-hot="{{ intval($item->hot_base) + intval($item->hot) }}"
+                               data-hot_label="{{ trans('index.hot') }}"
+                               class="ui-btn play"
+                               data-ui="primary small">Play</a>
                         </div>
-                    </a>
-                    <a data-id="{{ $item->id }}" data-title="{{ $item->title }}" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">Play</a>
-                </div>
-                <br>
+                        <br>
                     @endif
                 @endforeach
 
@@ -155,49 +179,99 @@
             <header>
                 <h2>{{ trans('index.history') }}</h2>
             </header>
-            <div class="list">
-                <div class="item">
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html">
-
-                        <figure class="cover">
-
-                            <img src="{!! asset('images/logo-wx.png') !!}"
-                                 style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
-                        </figure>
-                        <div class="meta">
-                            <h3 class="title">一个不能死</h3>
-                            <br>
-                            <i class="icon-star-4"></i>
-
-                            <span class="count">人气: 961199</span>
-
-                        </div>
-                    </a>
-                    <a data-id="1" data-title="一个不能死" href="http://smg.wgchao.com/good/syt/bunengsi/index.html"
-                       class="ui-btn play"
-                       data-ui="primary small">play</a>
-                </div>
+            <div class="list" id="list_history">
+                <h3>You Don't Have Play Any Games.</h3>
+                <small>Go To Play Game Now!</small>
             </div>
         </section>
     </div>
 </div>
-
+<template id="item_tpl">
+    <div class="item" id="item_$game_id$">
+        <a data-id="$game_id$"
+           data-title="$game_title$"
+           href="$game_url$"
+           data-display="$display$"
+           data-icon="$icon$"
+           data-stars="$stars$"
+           data-hot="$hot$"
+           data-hot_label="$hot_label$"
+        >
+            <figure class="cover">
+                <img src="$icon$"
+                     style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
+            </figure>
+            <div class="meta">
+                <h3 class="title">$game_title$</h3>
+                <br>
+                <i class="icon-star-$stars$"></i>
+                <span class="count">$hot_label$: $hot$</span>
+            </div>
+        </a>
+        <a data-id="$game_id$"
+           data-title="$game_title$"
+           href="$game_url$"
+           data-display="$display$"
+           data-icon="$icon$"
+           data-stars="$stars$"
+           data-hot="$hot$"
+           data-hot_label="$hot_label$"
+           class="ui-btn play"
+           data-ui="primary small">Play</a>
+    </div>
+</template>
 <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+<script src="{{ asset('js/common.js') }}" type="text/javascript"></script>
 <script>
 
     $(function () {
-        $('#list-box a').click(function (e) {
+        // init history
+        var play_history = JSON.parse(utils.getParam('play_history'));
+        var tpl = $('#item_tpl').html();
+        $('#list_history').prepend(replaceTpl(tpl, play_history));
+
+        // go to play game
+        $(document).on('click', '#list_box a', function (e) {
+
             e.preventDefault();
-            // alert('id:'+$(this).data('id')+'=title:'+$(this).data('title')+"=game_url:"+$(this).attr('href'));
-            sendNative('functionOpen', {
-                'id': $(this).data('id'),
-                'title': $(this).data('title'),
-                'game_url': $(this).attr('href')
+            // alert('id:'+$(this).data('id')+'=title:'+$(this).data('title')+"=game_url:"+$(this).attr('href')+"=display:"+$(this).data('display'));
+            var item = {
+                'game_id': $(this).data('id'),
+                'game_title': $(this).data('title'),
+                'game_url': $(this).attr('href'),
+                'display': $(this).data('display')
+            };
+            var item_history = {
+                'game_id': $(this).data('id'),
+                'game_title': $(this).data('title'),
+                'game_url': $(this).attr('href'),
+                'display': $(this).data('display'),
+                'icon': $(this).data('icon'),
+                'stars': $(this).data('stars'),
+                'hot': $(this).data('hot'),
+                'hot_label': $(this).data('hot_label')
+            };
+            sendNative('functionOpen', item, function (responseData) {
+                var tpl = $('#item_tpl').html();
+                var play_history = JSON.parse(utils.getParam('play_history'));
+                if (!utils.itemExists(item_history.game_id, play_history)) {
+                    if (play_history === null) {
+                        play_history = [item_history];
+                    } else {
+                        play_history.unshift(item_history);
+                    }
+                    utils.setParam('play_history', JSON.stringify(play_history));
+                    $('#list_history').prepend(replaceTpl(tpl, [item_history]));
+                }
+                $.get("/v/hot", {game_id:item_history.game_id},function (rs) {
+                    $('#incr').html(JSON.stringify(rs));
+                });
             });
             return false;
         });
 
-        $('#share-btn').click(function(e){
+        // go to share app
+        $('#share-btn').click(function (e) {
             e.preventDefault();
 //            console.log({
 //                'app_name': $(this).data('app_name'),
@@ -209,11 +283,12 @@
                 'app_name': $(this).data('app_name'),
                 'app_desc': $(this).data('app_desc'),
                 'app_icon': $(this).data('app_icon'),
-                'app_url' : $(this).data('app_url')
+                'app_url': $(this).data('app_url')
             });
             return false;
         });
 
+        // change tab
         $('.tabs .title').click(function () {
             var index = $(this).data('index');
             if (index == 1) {
@@ -230,7 +305,7 @@
         });
 
         // 第一连接时初始化bridage
-        connectWebViewJavascriptBridge(function(bridge) {
+        connectWebViewJavascriptBridge(function (bridge) {
             bridge.init(function (message, responseCallback) {
                 console.log('JS got a message', message);
                 var data = {
@@ -242,15 +317,12 @@
         });
     });
 
-    function sendNative(fnName,params) {
+
+    function sendNative(fnName, params, callback) {
         window.WebViewJavascriptBridge.callHandler(
                 fnName,
-                params
-                , function(responseData) {
-                    alert(responseData);
-                    $('#callback').show();
-                    $('#callback').html(responseData);
-                }
+                params,
+                callback
         );
     }
 
@@ -260,7 +332,7 @@
         } else {
             document.addEventListener(
                     'WebViewJavascriptBridgeReady'
-                    , function() {
+                    , function () {
                         callback(WebViewJavascriptBridge)
                     },
                     false

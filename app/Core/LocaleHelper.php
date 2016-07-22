@@ -17,7 +17,7 @@ class LocaleHelper
             'zh_HANS_CN'=>'zh_cn',
             'en_US' => 'en',
         ];
-        
+        $lang = strtolower($lang);
         if (isset($support[$lang])) {
             return $support[$lang];
         }

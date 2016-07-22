@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>3D汽车演变史</title>
+
+	  
+	  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <meta name="format-detection" content="telephone=no">
+	  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Doodle History 3D: Automobiles">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+	  
+	  
+  <meta property="og:type" itemprop="applicationCategory" content="game">
+  <meta property="og:title" itemprop="name" content="Doodle History 3D: Automobiles">
+  <meta property="og:description" itemprop="description" name="description" content="A 3D puzzle game about cars and automotive industry">
+  <meta property="og:image" itemprop="image" content="icons/128x128.png">
+	  
+  <style>
+  * {
+	margin:0;
+	padding:0;
+  }
+  body {
+	background-color:#000;
+	overflow: hidden;
+	width:100%;
+	height:100%;
+  }
+  
+  #content { 
+	width:100%;
+	height:100%;	
+  }
+	.aliForPc {display:none;position:fixed;top:5px;right:5px;width:200px;height:230px;overflow:hidden;z-index:99999;} 
+  </style>
+</head>
+
+<body>
+<div class="aliForPc"><img src="forpc.png" /></div> 
+<div id="content"></div>
+	<script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="developer.js"></script>
+<script src="flambe.js"></script>
+<script>
+window.addEventListener('scroll', function () {
+				if (document.activeElement === document.body && window.scrollY > 0) {document.body.scrollTop = 0;}
+			}, true);
+			
+  flambe.embed(["targets/main-html.js", "targets/main-flash.swf"], "content");
+</script>
+</body>
+<div style="display:none;">
+
+<script>
+
+</script>
+
+</div>
+</html>

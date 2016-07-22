@@ -1,0 +1,120 @@
+#background {
+	width:100%;
+	height:100%;
+	z-index:0;
+}
+#game {
+	width:100%;
+	height:100%;
+	z-index:1;
+}
+#landscape_message {
+	width:100%;
+	height:100%;
+	background-repeat:no-repeat;
+	background-position:center center;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:3;
+	visibility:hidden;
+}
+#preloading {
+	font-family:'Sigmar One',cursive;
+	height:200px;
+	width:400px;
+	color:white;
+	text-align:center;
+	position:fixed;
+	top:50%;
+	left:50%;
+	margin-top:-100px;
+	margin-left:-200px;
+}
+html,body {
+	overflow:hidden;
+	height:100%;
+	background-color:#000;
+}
+.game_logo {
+	position:absolute;
+	visibility:hidden;
+}
+#adv_top {
+	font-weight:800;
+	line-height:1.4;
+}
+#adv_bottom {
+	font-weight:800;
+	line-height:1.4;
+	padding-top:10%;
+}
+@-webkit-keyframes pulse {
+	0% {
+	-webkit-transform:scale3d(1,1,1);
+	transform:scale3d(1,1,1);
+}
+50% {
+	-webkit-transform:scale3d(1.2,1.2,1.2);
+	transform:scale3d(1.2,1.2,1.2);
+}
+100% {
+	-webkit-transform:scale3d(1,1,1);
+	transform:scale3d(1,1,1);
+}
+}@keyframes pulse {
+	0% {
+	-webkit-transform:scale3d(1,1,1);
+	transform:scale3d(1,1,1);
+}
+50% {
+	-webkit-transform:scale3d(1.2,1.2,1.2);
+	transform:scale3d(1.2,1.2,1.2);
+}
+100% {
+	-webkit-transform:scale3d(1,1,1);
+	transform:scale3d(1,1,1);
+}
+}.pulse {
+	-webkit-animation-name:pulse;
+	animation-name:pulse;
+}
+@-webkit-keyframes rubberBand {
+	0% {
+	-webkit-transform:scale3d(1,1,1);
+	transform:scale3d(1,1,1);
+}
+30% {
+	-webkit-transform:scale3d(1.25,0.75,1);
+	transform:scale3d(1.25,0.75,1);
+}
+40% {
+	-webkit-transform:scale3d(0.75,1.25,1);
+	transform:scale3d(0.75,1.25,1);
+}
+50% {
+	-webkit-transform:scale3d(1.15,0.85,1);
+	transform:scale3d(1.15,0.85,1);
+}
+65% {
+	-webkit-transform:scale3d(.95,1.05,1);
+	transform:scale3d(.95,1.05,1);
+}
+75% {
+	-webkit-transform:scale3d(1.05,.95,1);
+	transform:scale3d(1.05,.95,1);
+}
+100% {
+	-webkit-transform:scale3d(1,1,1);
+	transform:scale3d(1,1,1);
+}
+}.animated {
+	-webkit-animation-duration:3s;
+	animation-duration:3s;
+	-webkit-animation-fill-mode:both;
+	animation-fill-mode:both;
+}
+.animated.infinite {
+	-webkit-animation-iteration-count:infinite;
+	animation-iteration-count:infinite;
+}

@@ -1,0 +1,10 @@
+#viewport{
+	width: 960px;
+	height: 600px;
+	/*border: 1px solid white;*/
+	box-shadow: 5px 5px black;
+}
+
+body{
+	background-color: #111111;
+}

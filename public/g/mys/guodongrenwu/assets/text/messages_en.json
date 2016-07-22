@@ -1,0 +1,42 @@
+{
+	"briefingScoreTime": "Gain [%score%] Points \nin %time% seconds",
+	"briefingScoreMoves": "Gain [%score%] Points\nin %moves% moves",
+    "shuffleNotAvailable": "Locked!\nCollect %stars% stars\n and unlock it.",
+
+	"powerup.qty": "You have: {qty}",
+
+	"powerup.description.ExtraMoves1": "Touch For Bonus +1, \nWhen you move!",
+	"powerup.description.ExtraMoves2": "Touch For Bonus +2, \nWhen you move!",
+	"powerup.description.ExtraMoves3": "Touch For Bonus +3, \nWhen you move!",
+	"powerup.description.BombChain": "Earn Bonus\n9 Jellies!",
+	"powerup.description.Shuffle1": "Shuffle, \nWhen you cant move!",
+	"powerup.description.BonusPack1": "Earn Bonus\n When you start new level!",
+
+	"powerup.caption.DoublePointsPowerup": "Double Score",
+	"powerup.description.DoublePointsPowerup": "Cool Prop!",
+
+	"powerup.caption.locked": "???",
+
+    "goal.label": "goal",
+    "goal.scoreNoMoves": "Gain %score% Points",
+    "goal.score": "Gain %score% Points\nin %moves% moves",
+    "goal.cookies": "Collect %cookies% Cookies\nin %moves% moves",
+    "goal.fruits": "Collect all fruit\nin %moves% moves",
+    "goal.fruitsAndCookie": "Collect all fruit and %cookies% cookies\nin %moves% moves",
+    "goal.boss": "destroy block\nigh explosive!",
+
+    "tutorial.basics": "Eliminate 2 or more same jellies!",
+    "tutorial.cookie": "Want cookies? \nlet it down to the bottom!",
+    "tutorial.cookieTrouble": "Too many cookies!!!\n\nI have adjust\nblock of this level.",
+    "tutorial.moves": "The block is crazy!!!\n\nyou have 20 moves\nto collect all cookies!",
+    "tutorial.bomb": "Found a jelly bomb!\n\nwhen eliminate 10 jellies!",
+    "tutorial.fruits": "Fruit jelly!\n\ncounter\nis reset!",
+    "tutorial.frozen": "my bomb can not be used\nin low temperature\n\nbut I have new thing!",
+    "tutorial.boss": "you need lot of bombs\nto eliminate this beast!",
+
+    "cod.scoreGoal": "you need at least\n%scoreGoal% points! play again!",
+    "cod.fruitGoal": "you have fruit to be eliminated!\nplay again!",
+    "cod.bossAlive": "block must be destoryed!\nplease use more bomb!",
+    "cod.cookieGoal": "you need at least %cookieGoal% cookies!\ncollect more!"
+
+}

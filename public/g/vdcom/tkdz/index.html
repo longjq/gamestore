@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name='viewport' content='width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no' id='viewport'/>
+<title>90坦克大战</title>
+
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="js/addjs.min.js?v=0.1" data-config="js/config.js" data-config-cache="5"></script>
+<script>addjs.css("css/tank.min.css");</script>
+<style>
+        .btn_card {
+            position: absolute;
+            display: block;
+            left: 40px;
+            right: 40px;
+            bottom: 10%;
+            display: none;
+        }
+
+        .btn_card a.subCard {
+            height: 30px;
+            line-height: 30px;
+            border-radius: 17px;
+            background: #000;
+            border: 2px solid #fff;
+            color: #fff;
+            text-align: center;
+            display: block;
+            margin-bottom: 15px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn_card p {
+            color: #fff;
+            line-height: 40px;
+            font-size: 12px;
+            text-align: right;
+            margin-right: -10px;
+            margin-bottom: -12px;
+            margin-right: 20px;
+        }
+
+        .btn_card p a.goSinaHome {
+            color: #fff;
+            text-decoration: none;
+            margin-right: -10px;
+        }
+    </style>
+</head>
+<body>
+    <div style="display:none;">
+        <img id="iBoom" src='images/Boom.png'/>
+        <img id="iFrag" src="images/Frag.png"/>
+        <img id="iMisc" src="images/Misc.png"/>
+        <img id="iTank" src="images/Tank.png"/>
+        <img id="iTerr" src="images/Terr.png"/>
+        <img id="iUI" src="images/UI.png"/>
+    </div>
+    <div style="position:relative" id="ccc">
+        <canvas id='c1' width="488" height="456"></canvas>
+        <div class="btn_card">
+            <a class="subCard" id="share-btn" href="javascript:void(0);">分享战果</a>
+            <a class="subCard" href="javascript:void(0);">再挑战一次</a>
+        </div>
+    </div>
+    <div id='Input'>
+	    <div id='steer'>
+		    <div id='w'>
+		    	<div id='up' class="btn"></div>
+		    	<div id='down' class="btn"></div>
+		    	<div id='left' class="btn"></div>
+		    	<div id='right' class="btn"></div>
+		    </div>
+	    </div>
+    	<div id='attack' class="btn"></div>
+    	<div id='stop' class="btn"></div>
+    </div>
+
+<script  type="text/JavaScript">
+	
+    
+    window.shareData={
+      'title':'90坦克大战',
+      'link':'http://games.vdcom.cn/games/tkdz/',
+      'imgurl':'http://games.vdcom.cn/games/tkdz/icon.png'
+    }
+    window.shareFriendData={
+      'title':'90坦克大战',
+      'content':'关注微赢网络,更多好玩的游戏等着你。',
+      'link':'http://games.vdcom.cn/games/tkdz/',
+      'imgurl':'http://games.vdcom.cn/games/tkdz/icon.png'
+    }
+</script>
+<script type="text/JavaScript" src="http://gc.veiying.cn/code"></script>
+
+
+</body>
+
+<script>
+    addjs.js('js/tank.min.js');
+</script>
+
+</html>

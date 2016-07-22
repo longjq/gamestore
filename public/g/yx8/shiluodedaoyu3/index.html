@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>失落的岛屿3</title>
+<meta name="keywords" content="失落的岛屿3,失落的岛屿3html5游戏" />
+<meta name="description" content="失落的岛屿3html5游戏,失落的岛屿3手机在线游戏" />
+<link rel="apple-touch-icon" href="icon.png" />
+<link rel="shortcut icon" href="icon.png" />
+<link rel="icon" href="icon.png" />
+<meta name="date" content="2014-11-28">
+<meta name="gameCats" content="Bubble">
+<meta property="og:type" content="game">
+<meta property="og:title" content="Lost Island 3">
+<meta property="og:image" content="http://cdn.htmlgames.com/LostIsland3/img/icon/image-300x200.jpg">
+<meta property="og:description" content="Zuma like Match 3 game: Tap to shoot a ball up and create groups of 3 or more of the same colored balls to remove them from the game. Remove all balls before they reach the exit. Avoid the bumpers, but try to hit the bonus spots. Click or Tap the shooter to change color.">
+<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,width=device-width">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="msapplication-tap-highlight" content="no">
+<link rel="stylesheet" type="text/css" href="css/game.min.css">
+<script src="js/ThirdParty.js"></script>
+<script src="js/game.js"></script>
+</head>
+<body>
+<div id="gameContainer"></div>
+<div id="adContainer"><div id="timeLeft"></div></div>
+<div id="rotateHint">
+<h2>Please rotate your device</h2>
+<script>document.domain = '4399.com';</script>
+<img class="rotate" src="img/rotate.png" alt="Please rotate your device">
+<img id="rotateClose" src="img/close.png" alt="X">
+</div>
+<script>
+var gameName = document.title,
+gameContainer = document.getElementById('gameContainer'),
+gamePlay = new GamePlay();
+function orderInit(a) 
+{
+switch(a) {
+case 1: loadRec.creatloading(); break;
+case 2: GameMenu.showMenu(); break;
+case 3: GameHelp.showHelp(); break;
+case 4: gamePlay.showPlay(); break;
+case 5: GameOver.showOver(); break;
+}
+}
+GameLib.init(gameName, 800, 480);
+</script>
+<script src="../js/stat.js"></script>
+</body>
+</html>

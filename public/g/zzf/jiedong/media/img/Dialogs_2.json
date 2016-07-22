@@ -1,0 +1,75 @@
+{"frames": [
+
+{
+	"filename": "goal_star1.png",
+	"frame": {"x":2,"y":2,"w":113,"h":106},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":106},
+	"sourceSize": {"w":113,"h":106},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "goal_star2.png",
+	"frame": {"x":117,"y":2,"w":128,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":121},
+	"sourceSize": {"w":128,"h":121},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "goal_star_full1.png",
+	"frame": {"x":247,"y":2,"w":113,"h":106},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":106},
+	"sourceSize": {"w":113,"h":106},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "goal_star_full2.png",
+	"frame": {"x":362,"y":2,"w":128,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":121},
+	"sourceSize": {"w":128,"h":121},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "highDialog.png",
+	"frame": {"x":2,"y":125,"w":665,"h":1012},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":665,"h":1012},
+	"sourceSize": {"w":665,"h":1012},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "smallDialog.png",
+	"frame": {"x":2,"y":1139,"w":664,"h":900},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":664,"h":900},
+	"sourceSize": {"w":664,"h":900},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "tutorialDialog.png",
+	"frame": {"x":2,"y":2041,"w":664,"h":1037},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":664,"h":1037},
+	"sourceSize": {"w":664,"h":1037},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "Dialogs_2.png",
+	"format": "RGBA8888",
+	"size": {"w":1024,"h":4096},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4411a9656d7e94ca02ad2a7b660f3c18:0d18f5e62f58ff8c8fc01bdf0374e116:e9ae6ee9f11bf6b85c6c20870ba38fe3$"
+}
+}

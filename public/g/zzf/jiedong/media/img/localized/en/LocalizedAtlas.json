@@ -1,0 +1,48 @@
+{"frames": [
+
+{
+	"filename": "congratulations",
+	"frame": {"x":2,"y":2,"w":465,"h":215},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":14,"y":17,"w":465,"h":215},
+	"sourceSize": {"w":465,"h":215},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "facebook",
+	"frame": {"x":421,"y":315,"w":239,"h":59},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":219,"h":52},
+	"sourceSize": {"w":219,"h":52},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "pause",
+	"frame": {"x":2,"y":222,"w":290,"h":170},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":5,"y":10,"w":290,"h":170},
+	"sourceSize": {"w":290,"h":170},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "settings",
+	"frame": {"x":2,"y":400,"w":400,"h":100},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":2,"y":5,"w":400,"h":100},
+	"sourceSize": {"w":400,"h":100},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "LocalizedAtlas.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":512},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f3b44dde64ae40525c29206c91aa663a:9cf407dd50be0265c20539726c5fe3fa:cf400037d195f98b37f5cf4a4f87b2d6$"
+}
+}

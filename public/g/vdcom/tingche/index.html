@@ -1,0 +1,100 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>停车入位</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="viewport" content="initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, width=device-width,target-densitydpi=device-dpi"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="landscape"/>
+    <meta name="x5-fullscreen" content="true"/>
+
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style>
+        canvas {
+            image-rendering: optimizeSpeed;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: -o-crisp-edges;
+            image-rendering: optimize-contrast;
+            -ms-interpolation-mode: nearest-neighbor;
+        }
+    </style>
+</head>
+<body style="padding:0; margin: 0; background: #000;">
+<canvas id="gameCanvas" width="540" height="960"></canvas>
+<!-- <script type="text/javascript" src="WeixinApi.js"></script> -->
+<script>
+    // var _hmt = _hmt || [];
+    // (function() {
+    //     var hm = document.createElement("script");
+    //     hm.src = "//hm.baidu.com/hm.js?91f4361e83cf34ffe3b6dd0471ee205a";
+    //     var s = document.getElementsByTagName("script")[0];
+    //     s.parentNode.insertBefore(hm, s);
+    // })();
+
+    window.wxData = {
+        "appId": "", // 服务号可以填写appId
+        "imgUrl":'http://www.baoshanjie.com/game/tingche/res/show.jpg',
+        "link":'http://www.baoshanjie.com/game/tingche/index.html',
+        "desc":"老师傅，带带我～～～",
+        "title":"考驾照之科目三"
+    };
+    window.wxFriend = {
+        "appId": "", // 服务号可以填写appId
+        "imgUrl":'http://www.baoshanjie.com/game/tingche/res/show.jpg',
+        "link":'http://www.baoshanjie.com/game/tingche/index.html',
+        "desc":'老师傅，带带我～～～',
+        "title":"考驾照之科目三"
+    };
+    window.shareData = {
+        "imgUrl": "http://www.baoshanjie.com/game/tingche/res/show.jpg",
+        "timeLineLink": "http://www.baoshanjie.com/game/tingche/index.html",
+        "tTitle": "老师傅，带带我～～～",
+        "tContent": "考驾照之科目三"
+    };
+    // WeixinApi.ready(function(Api) {
+    //     var wxCallbacks = {
+    //         ready : function() {
+    //         },
+    //         cancel : function(resp) {
+    //         },
+    //         fail : function(resp) {
+    //         },
+    //         confirm : function(resp) {
+    //         },
+    //         all : function(resp) {
+    //         }
+    //     };
+
+    //     Api.shareToFriend(wxFriend, wxCallbacks);
+    //     Api.shareToTimeline(wxData, wxCallbacks);
+    //     Api.shareToWeibo(wxData, wxCallbacks);
+    // });
+
+    //document.write('<script type="text/javascript" src="http://218.244.142.3/game/15/createjs.js"><\/script>');
+</script>
+
+
+
+<script src="game.min.js"></script>
+
+
+<script  type="text/JavaScript">
+window.shareData={
+  'title':'停车入位',
+  'link':'http://games.vdcom.cn/games/tingche/',
+  'imgurl':'http://games.vdcom.cn/games/tingche/icon.png'
+}
+window.shareFriendData={
+  'title':'停车入位',
+  'content':'关注微赢网络,更多好玩的游戏等着你。',
+  'link':'http://games.vdcom.cn/games/tingche/',
+  'imgurl':'http://games.vdcom.cn/games/tingche/icon.png'
+}
+</script>
+</body>
+</html>

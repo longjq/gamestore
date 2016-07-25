@@ -2420,7 +2420,7 @@ section[data-ui~=graphic] [data-role=info] strong {
 .tabs .title {
     background-color: #4a87ee;
     border-color: #145fd7;
-    width:120px;
+    /*width:120px;*/
     color: #fff;
 }
 

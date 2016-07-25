@@ -12,12 +12,12 @@ class GoogleToken extends Model
     // 更新token
     public static function saveToken($uid, $token)
     {
-        return DB::insert("INSERT INTO google_token(uid,google_token,created_at) VALUES(?,?,?,?) 
-ON DUPLICATE KEY UPDATE google_token=VALUES(google_token)",
-            $uid,
+        return DB::insert("INSERT INTO google_tokens(uid,google_token,created_at,updated_at) VALUES(?,?,?,?) 
+ON DUPLICATE KEY UPDATE google_token=VALUES(google_token),updated_at=VALUES(updated_at)",
+            [$uid,
             $token,
             date('Y-m-d H:i:s'),
-            date('Y-m-d H:i:s')
+            date('Y-m-d H:i:s')]
             );
     }
 }

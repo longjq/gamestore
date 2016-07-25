@@ -16,10 +16,8 @@
                         {{ trans('index.list') }}
                     </a>
                 </td>
-                <td>
-                    &nbsp;
+                <td class="text-align:right;">
                     |
-                    &nbsp;
                 </td>
                 <td>
                     <a href="#" data-index="2" id="tab-2" class="title">
@@ -223,7 +221,7 @@
 <script src="http://cdn.bootcss.com/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
 <script src="{{ asset('js/common.js') }}" type="text/javascript"></script>
 <script>
-
+var isPlay = false;
     $(function () {
         // init history
         var play_history = JSON.parse(utils.getParam('play_history'));
@@ -261,6 +259,10 @@
                         play_history.unshift(item_history);
                     }
                     utils.setParam('play_history', JSON.stringify(play_history));
+                    if (!isPlay){
+                        $('#list_history').empty();
+                        isPlay = true;
+                    }
                     $('#list_history').prepend(replaceTpl(tpl, [item_history]));
                 }
                 $.get("/v/hot", {game_id:item_history.game_id},function (rs) {

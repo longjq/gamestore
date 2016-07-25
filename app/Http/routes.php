@@ -10,6 +10,14 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+Route::group(['prefix' => 'admin'], function(){
+
+    Route::get('index', 'Admin\DashController@index');
+});
+Route::get('/go', function(){
+    return view('login');
+});
+
 Route::get('/', 'GameController@index');
 //Route::get('/', function (\Illuminate\Http\Request $request) {
 //    $lang = $request->getLanguages();
@@ -27,12 +35,12 @@ Route::get('/', 'GameController@index');
 //});
 
 // 设置语言
-Route::get('/{locale}', function ($local,\Illuminate\Http\Request $request) {
-    $lang = $request->getLanguages();
-    // $local = $request->getLocale();
-    \App::setLocale($local);
-    return view('index', compact('lang','local'));
-});
+// Route::get('/{locale}', function ($local,\Illuminate\Http\Request $request) {
+//     $lang = $request->getLanguages();
+//     // $local = $request->getLocale();
+//     \App::setLocale($local);
+//     return view('index', compact('lang','local'));
+// });
 
 // 刷新游戏数据
 Route::get('/refresh/games', function(\Illuminate\Http\Request $request){

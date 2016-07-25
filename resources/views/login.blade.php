@@ -15,9 +15,14 @@
 <body>
 <script>$(document).ready(function(c) {
 	$('.close').on('click', function(c){
+		alert('123')
 		$('.login-form').fadeOut('slow', function(c){
 	  		$('.login-form').remove();
 		});
+	});	  
+
+	$('#send').on('click', function(c){
+		location.href='/admin/index';
 	});	  
 });
 </script>
@@ -41,7 +46,7 @@
 						</div>
 			</form>
 	<div class="signin">
-		<input type="submit" value="Login" >
+		<input type="submit" id="send" value="Login" >
 	</div>
 </div>
  <div class="copy-rights">

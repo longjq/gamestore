@@ -37,7 +37,7 @@ class GameController extends Controller
         }
         $lang = 'en';
         App::setLocale($lang);
-        $list = Game::where('lang', $lang)->where('open',1)->orderBy('hot','desc')->paginate(100);
+        $list = Game::where('lang', $lang)->where('open',1)->orderBy('hot_base','desc')->paginate(100);
         $lang = $lang . $con;
         return view('index', compact('list', 'langs', 'lang'));
     }
@@ -79,13 +79,13 @@ class GameController extends Controller
     public function upgrade(Request $request)
     {
         $map = [
-            '1' => [
+            'v1' => [
                 'ver'     => '1.2',
                 'upgrade' => 'upgrade 1.2 ... ... ...',
                 'url'     => 'http://ga.wgchao.com/upgrade/1.2.apk',
                 'ad_is_banner'=>1,
                 'ad_screen'=>50            ],
-            '2' => [
+            'v2' => [
                 'ver'     => '1.3',
                 'upgrade' => 'upgrade 1.3 ... ... ...',
                 'url'     => 'http://ga.wgchao.com/upgrade/1.3.apk',
@@ -111,6 +111,8 @@ class GameController extends Controller
         return json_encode([
             'rs'  => 1,
             'msg' => 'success',
+            "ad_is_banner"=>1,
+            "ad_screen"=>65,
         ]);
     }
 

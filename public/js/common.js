@@ -26,12 +26,14 @@ utils = {
         return localStorage.getItem(name)
     },
     itemExists : function (key, datas) {
+        var index = 0;
         for (var i in datas){
             if (datas[i].game_id == key){
-                return true;
+                return index;
                 break;
             }
+            index++;
         }
         return false;
     }
-}; 
+};

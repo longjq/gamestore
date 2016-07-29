@@ -16,6 +16,7 @@ class SyncGoogleToken
      */
     public function handle($request, Closure $next)
     {
+            
         $uid = $request->input('uid');
         $token = $request->input('google_token');
 

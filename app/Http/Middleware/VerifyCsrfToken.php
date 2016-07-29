@@ -14,6 +14,8 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         '/u/create',
         '/u/status',
-        '/u/share'
+        '/u/share',
+
+        '/admin/games'
     ];
 }

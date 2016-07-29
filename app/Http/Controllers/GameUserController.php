@@ -15,11 +15,11 @@ class GameUserController extends Controller
     // 激活
     public function active(Request $request)
     {
-        
+        $request->setTrustedProxies(['192.168.100.254']);
         $datas = HttpHelper::isVals($request->all(), [
-            'v','os','lang','device','brand','net','imei','imsi','mo','root','tz','oper','mac','ua','ov','sw','sh','mem','cpu','sdcard','ip'
+            'v','os','lang','area','device','brand','net','imei','imsi','mo','root','tz','oper','mac','ua','ov','sw','sh','mem','cpu','sdcard'
         ]);
-        if ($user = GameUser::create($datas)){
+        if ($user = GameUser::create(array_merge($datas, ['ip'=> $request->getClientIp()]))){
             return json_encode(['rs'=> 1,'msg'=>'success','uid'=>$user->id]);
         }
         return json_encode(['rs'=> 0,'msg'=>'error','uid'=>0]);

@@ -10,37 +10,43 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+
 Route::group(['prefix' => 'admin'], function(){
-
-    Route::get('index', 'Admin\DashController@index');
+    Route::get('login', function(){
+        return view('login');
+    });
+    Route::get('/', 'Admin\DashController@index');
+    Route::resource('/games', 'Admin\GameController');
 });
-Route::get('/go', function(){
-    return view('login');
+Route::get('/s', function(){
+    \DB::enableQueryLog();
+    \App\Models\GameUser::whereNull('area')->chunk(10, function($users){
+        echo 'chunk——10';
+        print_r($users->toArray());
+//        \DB::beginTransaction();
+//
+//        foreach ($users as $user){
+//            $user->area = 'test';
+//            $user->save();
+//        }
+//        \DB::commit();
+//        echo '10==========执行成功';
+
+
+    });
+
+
 });
-
-Route::get('/', 'GameController@index');
-//Route::get('/', function (\Illuminate\Http\Request $request) {
-//    $lang = $request->getLanguages();
-//    $local = $request->getLocale();
-//    \App::setLocale(strtolower($lang[0]));
-//    return view('index', compact('lang', 'local'));
+// 首页
+//Route::get('/', function(){
+//
+//    $lang = 'en';$con= 'en';
+//    App::setLocale($lang);
+//    $list = \App\Models\Game::where('lang', $lang)->where('open',1)->orderBy('hot_base','desc')->paginate(100);
+//    $lang = $lang . $con;
+//    return view('index_vue', compact('list', 'langs', 'lang'));
+//
 //});
-
-//Route::get('/l', function (\Illuminate\Http\Request $request) {
-//    header('<meta name="viewport" content="width=device-width, initial-scale=1">');
-//    print_r($request->getLanguages());
-//    echo '====';
-//    print_r($request->getLocale());
-//    dd();
-//});
-
-// 设置语言
-// Route::get('/{locale}', function ($local,\Illuminate\Http\Request $request) {
-//     $lang = $request->getLanguages();
-//     // $local = $request->getLocale();
-//     \App::setLocale($local);
-//     return view('index', compact('lang','local'));
-// });
 
 // 刷新游戏数据
 Route::get('/refresh/games', function(\Illuminate\Http\Request $request){
@@ -179,20 +185,16 @@ Route::get('/refresh/games', function(\Illuminate\Http\Request $request){
     }
 });
 
+// 首页
+Route::get('/', 'GameController@index');
+
+
+
 // 更新
 Route::get('/v/up', 'GameController@upgrade');
 
 // 热点
 Route::get('/v/hot', 'GameController@hot');
-
-// 推送
-Route::get('/v/push', function () {
-    return [
-        "title" => "this is title",
-        "content"=> "this is content",
-        "apk_url"=>"http://qqapp.qq.com/app/100653345.html#via=APPCENTER.XX.HOME-HOT"
-    ];
-});
 
 // 激活 ok
 Route::post('/u/create', "GameUserController@active");

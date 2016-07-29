@@ -2,14 +2,14 @@ var g_strings =
 {
 	"en":
 	{
-	    "TUTORIAL_1": "点击眼睛查看隐身牌",
-	    "TUTORIAL_2": "查找和选择两个相同的牌\n可以把他们从板上移除",
-	    "TUTORIAL_3": "消除闪亮的牌产生奖金项目",
-	    "TUTORIAL_4": "触摸奖金项目来激活它",
-	    "TUTORIAL_5": "继续匹配相同的牌",
-	    "TUTORIAL_6": "如果你有洗牌道具，\n你可以使用它",
-	    "TUTORIAL_7": "这里有彩色牌。他们可以匹配在一起",
-	    "TUTORIAL_8": "在有限的时间内，连续匹配三对\n可以生成闪亮牌",
+	    "TUTORIAL_1": "Click eyes to show Hide card",
+	    "TUTORIAL_2": "Find and choose the same card,\nyou can remove them all",
+	    "TUTORIAL_3": "Get bonus to clear shining card",
+	    "TUTORIAL_4": "Touch bonus item to active it",
+	    "TUTORIAL_5": "Continue to match card",
+	    "TUTORIAL_6": "If you have a shuffle prop，\nYou can use it",
+	    "TUTORIAL_7": "Here are card with colors, you can match them",
+	    "TUTORIAL_8": "If you match 3 pairs cards\nthen you can get a shining card",
 	},
 
 	"ru":

@@ -638,7 +638,7 @@ function game() {
 		A = "music.v2",
 		L = .2,
 		B = function() {
-			ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.addLead("没有可以放置碎片的空间了..."), this.innerHeight = 250, this.blurClose = !1
+			ModalOverlayContent.call(this), this.addHeadline("Game Close"), this.addLead("There are no any space..."), this.innerHeight = 250, this.blurClose = !1
 		};
 	B.prototype = Object.create(ModalOverlayContent.prototype), B.prototype.constructor = B;
 	var G = null;
@@ -648,8 +648,8 @@ function game() {
 	var O = function() {
 		// updateShare(H); 
 		// Play68.setRankingScoreDesc(H);
-		ModalOverlayContent.call(this), this.addHeadline("游戏结束"), this.innerHeight = 570, this.blurClose = !1, i(H);
-		var e = this.addButton("再玩一次", function() {
+		ModalOverlayContent.call(this), this.addHeadline("Game Over"), this.innerHeight = 570, this.blurClose = !1, i(H);
+		var e = this.addButton("Play Again", function() {
 				M.stop(0), M.play(0, !0), Modal.hide(function() {
 					y()
 				})
@@ -676,7 +676,7 @@ function game() {
 				y: s
 			}, .3)
 		});
-		var a = this.addTextBlock("最高分: " + t(Store.get(E) || 0), 60, 200);
+		var a = this.addTextBlock("Best Score: " + t(Store.get(E) || 0), 60, 200);
 		a.y = 310;
 		var h = [];
 		window.config && window.config.ads && h.push(function(t) {

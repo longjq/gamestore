@@ -1063,10 +1063,10 @@
 							]]]
 						]],
 						[29, 60, null, 2135777075840505, false, [
-							[7, [10, [10, [2, "你打败了全世界"],
+							[7, [10, [10, [2, "You beat "],
 									[23, "BeatPercent"]
 								],
-								[2, "%的人~！\n快乐是可以叠加，分享给你的朋友们吧！"]
+								[2, "% people in the world\nPlease share with your friend"]
 							]]
 						]]
 					],

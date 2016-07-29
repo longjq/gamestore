@@ -384,11 +384,11 @@ function encourage(perfection) {
     } else if (perfection < 0.9) {
         return 'The circle is ok';
     } else if (perfection < 0.93) {
-        return 'The circle is better than Vinci‘s egg';
+        return 'The Circle is better than \nVinci‘s egg';
     } else if (perfection < 0.94) {
         return 'The circle is nearly perfect！';
     } else if (perfection < 0.95) {
-        return 'You will not need a compass in the future！';
+        return 'You dont need a compass \nin the future！';
     } else if (perfection < 0.96) {
         return 'You must be a art teacher！';
     } else if (perfection < 0.98) {
@@ -400,7 +400,7 @@ function encourage(perfection) {
 
 function fillRankText() {
     rankText.content = '“' + encourage(perfection) + '”\n\n';
-    rankText.content += 'You draw a ' + (perfection * 100).toFixed(2) + '% circle！\nClick blue button to share with friends';
+    rankText.content += 'You draw a ' + (perfection * 100).toFixed(2) + '% circle！\nClick Blue button to \nshare with friends';
     // updateShare((perfection * 100).toFixed(2));
     // Play68.setRankingScoreDesc((perfection * 100).toFixed(2));
 	   window.isConfirm=true;

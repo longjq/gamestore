@@ -598,7 +598,7 @@ function(a) {
                 b.shadowColor = "#000",
                 b.shadowOffsetY = 1,
                 b.textAlign = "center",
-                b.fillText("\u5df2\u52a0\u8f7d" + Math.floor(100 * (a / e)) + "%", c / 2, d / 2 + 7),
+                b.fillText("Loaded " + Math.floor(100 * (a / e)) + "%", c / 2, d / 2 + 7),
                 b.fill(),
                 b.restore(),
                 a == e && (clearInterval(this.loadTimer), b.clearRect(0, 0, c, d), this.init(), this.loadfuc())

@@ -34,7 +34,7 @@ var probe = {
 	alert: function(options, callback) {
 		var self = this;
 		var closebtn = {
-			title: "\u5173\u95ed",
+			title: "Close",
 			click: function() {}
 		};
 		var opt = {
@@ -48,7 +48,7 @@ var probe = {
 			loadDefaultCss: true,
 			buttons: {
 				close: {
-					title: "\u5173\u95ed",
+					title: "关闭",
 					click: function() {}
 				}
 			}
@@ -71,7 +71,7 @@ var probe = {
 	confirm: function(options, callback) {
 		var self = this;
 		var confirmbtn = {
-			title: "\u786e\u5b9a",
+			title: "Confirm",
 			click: function() {}
 		};
 		var opt = {
@@ -85,11 +85,11 @@ var probe = {
 			loadDefaultCss: true,
 			buttons: {
 				confirm: {
-					title: "\u786e\u5b9a",
+					title: "Confirm",
 					click: function() {}
 				},
 				close: {
-					title: "\u53d6\u6d88",
+					title: "Cancel",
 					click: function() {}
 				}
 			}
@@ -123,7 +123,7 @@ var probe = {
 			loadDefaultCss: true,
 			buttons: {
 				close: {
-					title: "\u5173\u95ed",
+					title: "Close",
 					click: function() {}
 				}
 			}

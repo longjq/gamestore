@@ -13987,7 +13987,7 @@ var __extends = this.__extends || function(c, d) {
 			this.textField_power.width = this.w;
 			this.textField_power.height = 100;
 			this.textField_power.size = 20;
-			this.textField_power.text = "最好玩的游戏尽在微赢小游戏";
+			this.textField_power.text = "��";
 			this.textField_power.fontFamily = "Black";
 			this.textField_power.textAlign = "center";
 			var c = new egret.URLLoader;
@@ -14014,7 +14014,7 @@ var __extends = this.__extends || function(c, d) {
 			c._request.url == this.bgUrl ? (this.bg.texture = b, this.bg.scaleX = this.w / 640, this.bg.scaleY = this.h / 960) : c._request.url == this.logoUrl && (this.logo.texture = b, this.logo.anchorX = this.logo.anchorY = 0.5, this.logo.x = this.w / 2, this.logo.y = this.h / 2 - 60, this.logo.scaleX = this.logo.scaleY = this.h / 960, this.textField.y = this.logo.y + 100)
 		};
 		d.prototype.setProgress = function(c, b) {
-			this.textField.text = "\u6e38\u620f\u52a0\u8f7d\u4e2d\u2026" + Math.floor(c / b * 100) + "%"
+			this.textField.text = "Loading" + Math.floor(c / b * 100) + "%"
 		};
 		d.prototype.onLoadComplete =
 			function(c, b) {};

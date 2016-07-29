@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Game;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -12,4 +13,8 @@ class DashController extends Controller
     public function index(){
         return view('admin/index');
     }
+
+    
+
+    
 }

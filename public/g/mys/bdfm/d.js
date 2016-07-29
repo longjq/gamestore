@@ -8316,7 +8316,7 @@
 		}
 		return __extends(b, a), b.prototype.preload = function() {
 			var a, b;
-			this.scale.pageAlignHorizontally = !0, this.scale.pageAlignVertically = !0, this.scale.scaleMode = this.game.device.desktop ? Phaser.ScaleManager.SHOW_ALL : Phaser.ScaleManager.EXACT_FIT, this.scale.refresh(), this.stage.backgroundColor = 16777215, a = this.game.add.text(this.game.world.width / 2, this.game.world.height / 2 + 100, "拼了老命加载中……", {
+			this.scale.pageAlignHorizontally = !0, this.scale.pageAlignVertically = !0, this.scale.scaleMode = this.game.device.desktop ? Phaser.ScaleManager.SHOW_ALL : Phaser.ScaleManager.EXACT_FIT, this.scale.refresh(), this.stage.backgroundColor = 16777215, a = this.game.add.text(this.game.world.width / 2, this.game.world.height / 2 + 100, "Loading……", {
 				font: "48px Arial",
 				fill: "#f0e921",
 				align: "center",

@@ -42,6 +42,24 @@ class GameController extends Controller
         return view('index', compact('list', 'langs', 'lang'));
     }
 
+    // 获取应用id，记录打开应用事件
+    public function open(Request $request)
+    {
+        $uid = $request->input('uid');
+        $start = $request->input('start');
+        $open = EventLog::create([
+            'uid' => $uid,
+            'event_type' => 1,
+            'start_time' => date('Y-m-d H:i:s', $start),
+            'net' => 1
+        ]);
+        return json_encode([
+            'rs'=>1,
+            'msg'=>'success',
+            'event_id'=>$open->id
+        ]);
+    }
+
     // 应用状态上报
     public function status(Request $request)
     {

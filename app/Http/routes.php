@@ -190,6 +190,9 @@ Route::get('/', 'GameController@index');
 
 
 
+// 获取应用ID
+Route::get('/v/open', 'GameController@open');
+
 // 更新
 Route::get('/v/up', 'GameController@upgrade');
 

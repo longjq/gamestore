@@ -17,7 +17,7 @@ class EventLog extends Model
         try{
             DB::beginTransaction();
             foreach ($datas as $data){
-                if (!empty($data['event_id'] && !empty($data['net'])){
+                if (!empty($data['event_id']) && !empty($data['net'])){
                     $datetime = !empty($data['end']) ? $data['end'] : $data['start'];
                     $this->where('id', $data['event_id'])->update([
                         'end_time' => date('Y-m-d H:i:s', $datetime)

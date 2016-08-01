@@ -47,6 +47,7 @@ class GameController extends Controller
     {
         $uid = $request->input('uid');
         $start = $request->input('start');
+
         $open = EventLog::create([
             'uid' => $uid,
             'event_type' => 1,
@@ -55,7 +56,7 @@ class GameController extends Controller
         ]);
         return json_encode([
             'rs'=>1,
-            'msg'=>'success',
+            'msg'=>'success:'.date('Y-m-d H:i:s', $start),
             'event_id'=>$open->id
         ]);
     }

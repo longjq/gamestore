@@ -16,6 +16,7 @@ class VerifyCsrfToken extends BaseVerifier
         '/u/status',
         '/u/share',
 
-        '/admin/games'
+        '/admin/games',
+        '/api'
     ];
 }

@@ -11,7 +11,11 @@
 |
 */
 
-Route::group(['prefix' => 'admin'], function(){
+Route::group(['middleware'=>'ApiGuard'],function(){
+    Route::post('/api','GameUserController@apiGurid');
+});
+
+Route::group(['prefix' => 'admin','middleware'=>'ApiGuard'], function(){
     Route::get('login', function(){
         return view('login');
     });

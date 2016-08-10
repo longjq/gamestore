@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Core\ApiRequest;
 use App\Core\HttpHelper;
 use App\Core\LoggerHelper;
 use App\Models\GameUser;
@@ -28,4 +29,6 @@ class GameUserController extends Controller
         }
         return json_encode(['rs'=> 0,'msg'=>'error','uid'=>0]);
     }
+
+
 }

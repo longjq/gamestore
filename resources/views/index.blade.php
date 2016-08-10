@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
     <title>{{ trans('index.title') }}</title>
     <link rel="stylesheet" href="{!! asset('css/common.css') !!}">
+    <script src="{{ asset('js/echo.min.js') }}"></script>
 </head>
 <body>
 <div id="page">
@@ -16,9 +17,6 @@
                         {{ trans('index.list') }}
                     </a>
                 </td>
-                {{--<td style="width:5%;text-align:center;">--}}
-                    {{--|--}}
-                {{--</td>--}}
                 <td style="width: 44%;">
                     <a href="#" data-index="2" id="tab-2" class="title">
                         {{ trans('index.history') }}
@@ -26,10 +24,11 @@
                 </td>
                 <td style="width:12%;text-align:center;">
                     <a href="javascript:void(0);" id="share-btn" onclick="shareApp(this)" class="ui-btn" data-ui="icon-only"  data-track="navsearch"
-                       data-app_name="game store"
-                       data-app_desc="play games"
-                       data-app_url="http://ga.wgchao.com"
-                       data-app_icon="http://ga.wgchao.com/images/icon.png"
+                       data-app_name="{{ $configs['share_app_name'] }}"
+                       data-app_desc="{{ $configs['share_app_desc'] }}"
+                       data-app_url="{{ $configs['share_app_url'] }}"
+                       data-app_icon="{{ $configs['share_app_icon'] }}"
+                       data-game_desc="{{ $configs['share_game_desc'] }}"
                     >
                         <img src="{{ asset('images/share_72x72.png') }}" alt="share">
                     </a>
@@ -108,7 +107,7 @@
             <div class="banner-small">
                 <table style="width: 100%;">
                     <tr>
-                        <td align="right" style="text-align:right">
+                        <td align="right" style="text-align:center;width:45%;">
                             <a data-id="45"
                                data-display="1"
                                data-title="Baccarat"
@@ -120,8 +119,8 @@
                             <img src="{!! asset('images/banner2.png') !!}" alt="">
                             </a>
                         </td>
-                        <td>&nbsp;</td>
-                        <td align="left" style="text-align:left">
+
+                        <td align="left" style="text-align:center;width:45%;">
                             <a  data-id="51"
                                 data-display="0"
                                 data-title="Monster Connect"
@@ -154,8 +153,7 @@
                             >
 
                                 <figure class="cover">
-
-                                    <img src="{!! asset($item->icon_url) !!}"
+                                    <img data-echo="{!! asset($item->icon_url) !!}" src="{{ asset('images/blank.gif') }}"
                                          style="opacity: 1; transition: opacity 0.5s linear 0s; -webkit-transition: opacity 0.5s linear 0s;">
                                 </figure>
                                 <div class="meta">
@@ -185,13 +183,16 @@
 
             </div>
         </section>
-        <section id="con-2" style="display: none;">
+        <section id="con-2" style="display: none;margin-bottom:50px;">
             <header>
                 <h2>{{ trans('index.history') }}</h2>
             </header>
             <div class="list" id="list_history">
-                <h3 id="history-empty">You Don't Have Play Any Games.</h3>
-                {{--<small>Go To Play Game Now!</small>--}}
+                <h3 id="history-empty">
+                  <p><img src="{{ asset('images/cry.png') }}" alt=""></p>
+                   <br>
+                  You Don't Have Play Any Games.
+                </h3>
             </div>
         </section>
     </div>
@@ -230,12 +231,16 @@
            data-ui="primary small">PLAY</a>
     </div>
 </template>
-{{--<script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>--}}
-{{--<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js" type="text/javascript"></script>--}}
 <script src="{{ asset('js/jquery.2.2.4.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/common.js') }}" type="text/javascript"></script>
 <script>
-
+    Echo.init({
+        offset: 50,
+        throttle: 0
+    });
+    document.oncontextmenu = function(){
+        return false;
+    };
     var isPlay = false;
     $(function () {
 
@@ -266,18 +271,21 @@
         }
 
         // go to play game
-        //$('#list_box a').on('click', function(e){
-        //$('#list_box a').click(function(e){
         $(document).on('click', '#list_box a', function (e) {
             e.preventDefault();
 
-            // alert('id:'+$(this).data('id')+'=title:'+$(this).data('title')+"=game_url:"+$(this).attr('href')+"=display:"+$(this).data('display'));
             var item = {
                 'game_id': $(this).data('id'),
                 'game_title': $(this).data('title'),
                 'game_url': $(this).attr('href'),
-                'display': $(this).data('display')
+                'display': $(this).data('display'),
+                'app_icon': $('#share-btn').data('app_icon'),
+                'app_url': $('#share-btn').data('app_url'),
+                'app_name': $('#share-btn').data('app_name'),
+                'app_desc': $('#share-btn').data('app_desc'),
+                'game_desc': $('#share-btn').data('game_desc')
             };
+
             var item_history = {
                 'game_id': $(this).data('id'),
                 'game_title': $(this).data('title'),
@@ -295,7 +303,6 @@
             sendNative('functionOpen', item, function (responseData) {
                 $hots.html(Number(hotNumber) + 1);
                 var tpl = $('#item_tpl').html();
-                //var play_history = JSON.parse(utils.getParam('play_history'));
                 index = utils.itemExists(item_history.game_id, play_history);
                 if (index === false) {
                     // 第一次玩
@@ -322,7 +329,6 @@
     });
 
 // init bridge
-// 第一连接时初始化bridage
 connectWebViewJavascriptBridge(function (bridge) {
     bridge.init(function (message, responseCallback) {
         console.log('JS got a message', message);

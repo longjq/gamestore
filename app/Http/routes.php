@@ -192,6 +192,8 @@ Route::get('/', 'GameController@index');
 
 // 获取应用ID
 Route::get('/v/open', 'GameController@open');
+// 获取游戏ID
+Route::get('/v/opengame', 'GameController@openGame');
 
 // 更新
 Route::get('/v/up', 'GameController@upgrade');
@@ -207,3 +209,57 @@ Route::post('/u/status', "GameController@status");
 
 // 分享上报
 Route::post('/u/share', "GameController@share");
+
+// 分享上报
+Route::get('/xxx', function(){
+    \App\Models\EventLog::create([
+        'channel'=>'44asdadad',
+        'event_id'=>'34433',
+        'uid'=>'444',
+        'event_type'=>'1',
+        'game_id'=>'1',
+        'start_time'=>'2016-12-12 12:12:21',
+        'net'=>'1',
+
+    ]);
+    return 111;
+});
+
+
+// 批量修改title
+Route::get('/replace', function(){
+
+
+
+
+
+
+
+
+
+
+
+
+   $items = \App\Models\Game::all();
+
+
+    foreach($items as $item){
+        $title = $item->title;
+        $path = $item->path;
+
+       $path = parse_url($path)['path'];
+        $html = file_get_contents($item->path);
+
+        $matches = [];
+        $pattern = '/<title>(?<ch_title>.*)<\/title>/';
+        preg_match_all($pattern, $html, $matches);
+        if (isset($matches['ch_title'][0])){
+            $replacePattern = "/{$matches['ch_title'][0]}/";
+            $html = preg_replace($replacePattern, $title, $html);
+            $html = preg_replace("/游戏/", 'game', $html);
+        };
+
+        file_put_contents(public_path($path), $html);
+
+    }
+});

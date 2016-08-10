@@ -11,11 +11,17 @@ namespace App\Core;
 
 class HttpHelper
 {
-    public static function isVals($datas, $fields)
+    public static function isVals($datas, $fields, $need = true)
     {
         $vals = [];
         foreach ($fields as $field){
-             $vals[$field] = isset($datas[$field]) ? $datas[$field] : '';
+            if ($need) {
+                $vals[$field] = isset($datas[$field]) ? $datas[$field] : '';
+            } else{;
+                if (isset($datas[$field]))
+                    $vals[$field] = $datas[$field];
+            }
+                
         }
         return $vals;
     }

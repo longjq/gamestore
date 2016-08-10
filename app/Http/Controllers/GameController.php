@@ -8,12 +8,14 @@ use App\Models\Game;
 use App\Models\GameUser;
 use App\Models\GoogleToken;
 use App\Models\ShareLog;
+use App\Models\WebConfig;
 use Illuminate\Http\Request;
+use App\Core\HttpHelper;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App;
-
+use DB;
 class GameController extends Controller
 {
     private $googleToken;
@@ -25,6 +27,7 @@ class GameController extends Controller
     // 首页
     public function index(Request $request)
     {
+
         $langs = $request->getLanguages();
         $lang = 'en';
         if (count($langs) > 0) {
@@ -39,20 +42,48 @@ class GameController extends Controller
         App::setLocale($lang);
         $list = Game::where('lang', $lang)->where('open',1)->orderBy('hot_base','desc')->paginate(100);
         $lang = $lang . $con;
-        return view('index', compact('list', 'langs', 'lang'));
+        $configs = WebConfig::lists('value','key');
+        return view('index', compact('list', 'langs', 'lang', 'configs'));
     }
 
     // 获取应用id，记录打开应用事件
     public function open(Request $request)
     {
+        $request->setTrustedProxies(['192.168.100.254']);
         $uid = $request->input('uid');
         $start = $request->input('start');
+        $datas = HttpHelper::isVals($request->all(), [
+            'v','area','lang','device','imei',
+            'mo','tz','ua','ov','sw','sh','channel'
+        ]);
+        $user = GameUser::find($uid);
+        if ($user->v != $datas['v'] || $user->channel != $datas['channel']){
+            $user->area = $datas['area'];
+            $user->lang = $datas['lang'];
+            $user->device = $datas['device'];
+            $user->imei = $datas['imei'];
+            $user->mo = $datas['mo'];
+            $user->tz = $datas['tz'];
+            $user->ua = $datas['ua'];
+            $user->ov = $datas['ov'];
+            $user->channel = $datas['channel'];
+            $user->v = $datas['v'];
+            $user->save();
+        }
+
+        $datas = array_merge($datas, [
+            'ip'=> $request->getClientIp(),
+            'event_type'=>1,
+            'net'=>1,
+            'start_time' => date('Y-m-d H:i:s', $start)
+        ]);
 
         $open = EventLog::create([
             'uid' => $uid,
             'event_type' => 1,
-            'start_time' => date('Y-m-d H:i:s', $start),
-            'net' => 1
+            'channel' => $datas['channel'],
+            'net' => 1,
+            'start_time' => date('Y-m-d H:i:s', $start)
         ]);
         return json_encode([
             'rs'=>1,
@@ -61,10 +92,42 @@ class GameController extends Controller
         ]);
     }
 
+    // 获取游戏id，记录打开应用事件
+    public function openGame(Request $request)
+    {
+        $uid = $request->input('uid');
+        $start = $request->input('start');
+        $event_id = $request->input('event_id');
+        $game_id = $request->input('game_id');
+        $channel = $request->input('channel');
+
+        $openGame = EventLog::create([
+            'uid' => $uid,
+            'event_type' => 3,
+            'start_time' => date('Y-m-d H:i:s', $start),
+            'net' => 1,
+            'event_id'=> $event_id,
+            'game_id'=> $game_id,
+            'channel' => $channel
+        ]);
+        // 更新应用关闭时间
+        EventLog::where('id', $event_id)->update([
+             'end_time' => date('Y-m-d H:i:s', $start),
+             'event_type'=> 3,
+             'play_time'=> DB::raw("{$start} - UNIX_TIMESTAMP(start_time)")
+        ]);
+        return json_encode([
+            'rs'=>1,
+            'msg'=>'success:'.date('Y-m-d H:i:s', $start),
+            'event_game_id'=>$openGame->id
+        ]);
+    }
+
     // 应用状态上报
     public function status(Request $request)
     {
         $uid = $request->input('uid');
+        $channel = $request->input('channel');
         $token = $request->input('google_token');
         if ($uid) {
             if ($token){
@@ -73,8 +136,9 @@ class GameController extends Controller
 
             $eventJson = json_decode($request->input('events'), true);
             $event = new EventLog();
-            if ($event->createByTransaction($eventJson, $uid)) {
-                return json_encode(['rs' => 1, 'msg' => 'success', 'uid' => intval($uid)]);
+            
+            if ($event->createByTransaction($eventJson, $uid, $channel)) {
+                return json_encode(['rs' => 1, 'msg' => 'success:'.$channel, 'uid' => intval($uid)]);
             }
         }
         return json_encode(['rs' => 0, 'msg' => 'insert db error', 'uid' => 0]);
@@ -115,7 +179,7 @@ class GameController extends Controller
 
         $uid = $request->input('uid');
         $ver = $request->input('ver');
-
+        $webConfigs = App\Models\WebConfig::lists('value','key');
         if (isset($map[$ver])) {
             return json_encode([
                 'rs'      => 1,
@@ -123,15 +187,15 @@ class GameController extends Controller
                 'ver'     => $map[$ver]['ver'],
                 'upgrade' => $map[$ver]['upgrade'],
                 'url'     => $map[$ver]['url'],
-                "ad_is_banner"=>1,
-                "ad_screen"=>65,
+                "ad_is_banner"=>$webConfigs['ad_is_banner'],
+                "ad_screen"=>$webConfigs['ad_screen'],
             ]);
         }
         return json_encode([
             'rs'  => 1,
             'msg' => 'success',
-            "ad_is_banner"=>1,
-            "ad_screen"=>65,
+            "ad_is_banner"=>intval($webConfigs['ad_is_banner']),
+            "ad_screen"=>intval($webConfigs['ad_screen']),
         ]);
     }
 

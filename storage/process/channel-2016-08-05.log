@@ -1,0 +1,2 @@
+[2016-08-05 11:05:53] process.INFO: index ["mess"] 
+[2016-08-05 11:24:30] process.INFO: net=o: [{"query":"insert into `event_logs` (`event_type`, `net`, `start_time`, `end_time`, `play_time`, `event_id`, `uid`, `channel`, `updated_at`, `created_at`) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)","bindings":[2,"0","2016-08-01 11:44:07","2016-08-01 11:45:21",74,"7466","1865","go1ogle","2016-08-05 11:24:30","2016-08-05 11:24:30"],"time":12.44}] 

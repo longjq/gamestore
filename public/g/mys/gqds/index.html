@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0,user-scalable=no" />
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta charset="UTF-8">
-    <title>钢琴大师</title>
+    <title>Piano Master</title>
     <meta name="x-id" content="1032">
     <meta name="screen-orientation" content="portrait">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
@@ -40,13 +40,13 @@
 <script src="js/meiriq_game.js?v1.3"></script>
 
 <script>
-    // 传入游戏英文名,分数类型为score 或者 level
+    // 传入game英文名,分数类型为score 或者 level
     // 注意!!这里命名一定是meiriq_game,请不要私自命名
     (function(){
         //updateShare(0);
         })();
     var meiriq_game = new Meiriq_game("masterpianist", "score");
-    window["meiriq_game"].permitStart=1;  //这里需要自己修改参数测试一下 如果是1允许开始 0则不允许开始游戏
+    window["meiriq_game"].permitStart=1;  //这里需要自己修改参数测试一下 如果是1允许开始 0则不允许开始game
 
     function isMobile(){
     return navigator.userAgent.match(/android|iphone|ipad|ipod|blackberry|meego|symbianos|windowsphone|ucbrowser/i);
